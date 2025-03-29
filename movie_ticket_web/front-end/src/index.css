@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("../public/fonts/SF-Pro-Display-Semibold.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MyCustomFont1";
+  src: url("../public/fonts/Abel-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MyCustomFont2";
+  src: url("../public/fonts/SF-Pro-Display-Bold.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MyCustomFont3";
+  src: url("../public/fonts/SF-Pro-Display-Light.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.loader {
+  border: 6px solid #f3f3f3; /* Light grey */
+  border-top: 6px solid red; /* Red */
+  border-radius: 50%;
+  width: 60px; /* Giảm kích thước */
+  height: 60px; /* Giảm kích thước */
+  animation: spin 1s linear infinite; /* Tăng tốc độ quay */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Căn giữa phần chứa loader */
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Đảm bảo nó chiếm toàn bộ chiều cao trang */
+  background-color: rgba(0, 0, 0, 0.9); /* Nền tối mờ, có độ mờ cao hơn */
+  position: fixed; /* Giữ nó cố định */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999; /* Để đảm bảo nó nằm trên cùng */
+}
+/* Hiệu ứng mở rộng cho phần tử chứa mã vạch */
+.barcode-container {
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.barcode-container.show {
+  opacity: 1;
+  transform: scale(1);
+}
